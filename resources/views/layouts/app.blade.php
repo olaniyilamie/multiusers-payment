@@ -21,6 +21,9 @@
     <link href="{{ asset('style/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('style/icons/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('style/appcss.css') }}" rel="stylesheet">
+
+    <!-- icon -->
+    <link rel="icon" type="image/logo.png" href="{{ asset('images/passport.png')}}">
 </head>
 <body>
     <div id="app">
