@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,24 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    // public function afterAuthRedirect()
+    // {
+    //     return view('users.dashboard');
+    // }
+
+    public function adminIndex()
+    {
+        $all_user = User::where('role', 'free_user')->orWhere('role','paid_user')->get();       
+        return view('admin.dashboard',compact('all_user'));
+    }
+    public function userIndex()
+    {
+        return view('users.unlimited_access_dashboard');
+    }
+    public function limitedUserIndex()
+    {
+        return view('users.limited_access_dashboard');
     }
 }
