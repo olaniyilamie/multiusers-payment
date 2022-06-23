@@ -12,6 +12,10 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="icon" type="image/logo.png" href="{{ asset('images/passport.png')}}">        
+        <link rel="stylesheet" href="{{ asset('style/icons/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/bootstrap.min.css') }}">
+
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
