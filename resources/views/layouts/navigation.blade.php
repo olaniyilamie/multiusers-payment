@@ -5,19 +5,9 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    @if (Auth::user()->role == 'is_admin')
-                    <a href="{{ route('admin') }}"  >   
-                        <i class="fa-solid fa-user block w-auto fill-current text-gray-600 text-lg"></i>
+                    <a href="/"  >   
+                        <i class="fa-brands fa-nfc-symbol fill-current text-gray-500"></i>
                      </a>
-                    @elseif (Auth::user()->role == 'paid_user')
-                    <a  href="{{ route('paid.user') }}" >
-                        <i class="fa-solid fa-user block w-auto fill-current text-gray-600 text-lg"></i>
-                     </a>                    
-                    @else
-                    <a href="{{ route('free.user') }}" >
-                        <i class="fa-solid fa-user block w-auto fill-current text-gray-600 text-lg"></i>
-                     </a>
-                    @endif
                 </div>
 
                 <!-- Navigation Links -->
