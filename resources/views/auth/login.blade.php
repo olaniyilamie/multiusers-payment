@@ -51,6 +51,9 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+            <div class="flex items-center justify-end mt-4">
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Sign up</a>
+            </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
