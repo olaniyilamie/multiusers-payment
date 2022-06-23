@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,8 @@ Route::get('/admin/dashboard', [HomeController::class, 'adminIndex'])->middlewar
 Route::get('free_user/dashboard', [HomeController::class, 'limitedUserIndex'])->middleware(['free.user'])->name('free.user');
 
 Route::get('/dashboard', [HomeController::class, 'userIndex'])->middleware(['paid.user'])->name('paid.user');
+
+Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+Route::get('/payment/callback',[ PaymentController::class, 'handleGatewayCallback']);
 
 require __DIR__.'/auth.php';
