@@ -33,8 +33,9 @@ class HomeController extends Controller
     // }
 
     public function adminIndex()
-    {
-        $all_user = User::where('role', 'free_user')->orWhere('role','paid_user')->get();       
+    {   
+        $users = new User;             
+        $all_user =   $users->userList();  
         return view('admin.dashboard',compact('all_user'));
     }
     public function userIndex()
