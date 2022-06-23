@@ -59,7 +59,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    3 different types of users, one is the admin with a user list in the dashboard and the other two are free user and paid user. 
+                                    3 different types of users, one is the admin with a user list in the dashboard and the other two are a paid user and a free user with option to upgrade to a paid user. 
                                 </div>
                             </div>
                         </div>                        

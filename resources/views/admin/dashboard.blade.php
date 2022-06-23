@@ -11,6 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <i class="fa-solid fa-users mr-2"></i> USER LIST
                 </div>
+                @if ($all_user->count() == 0)
+                    <p class="m-5 alert alert-warning">No User is available</p>
+                @else
                 <div class="col-12 m-auto text-center table-responsive">
                     <table class="table table-sm table-striped table-bordered">
                         <thead class="thead-dark ">
@@ -37,6 +40,7 @@
                         </tbody>
                     </table>
                 </div>
+                @endif
             </div>
         </div>
     </div>
