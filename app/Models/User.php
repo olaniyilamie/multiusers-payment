@@ -41,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userList()
+    {
+        return User::where('role', 'free_user')->orWhere('role','paid_user')->get();  
+    }
+    
+    
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
 }

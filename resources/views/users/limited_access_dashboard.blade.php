@@ -8,6 +8,21 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                @if (session('error'))
+                <div class="alert alert-danger">
+                    <p class="text-center">
+                            {{session('error')}}
+                    </p>
+                </div>
+                @endif
+                @if (session('success'))
+                <div class="alert alert-success">
+                    <p class="text-center">
+                            {{session('success')}}
+                    </p>
+                </div>
+                @endif
+
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
                 </div>
@@ -31,11 +46,24 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+            <form method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" class="form-horizontal" role="form">
+                <div class="row">
+                    <div class="col-12">
+                        <p>You are about to subcribe to our full package of <span class="font-weight-bold">NGN 5,000</span></p>
+                        <input type="hidden" name="email" value="{{Auth::user()->email}}">
+                        <input type="hidden" name="amount" value="500000">
+                        <input type="hidden" name="currency" value="NGN">
+                        <input type="hidden" name="metadata" value="{{ json_encode($array = ['user_id' => Auth::user()->id]) }}">
+                        <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">                                        
+                        {{ csrf_field() }}
+                    </div>
+                             
+                    <div class="col-12 text-right">                            
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
+                        <button class="btn btn-success " type="submit" >PROCEED </button>
+                    </div>   
+                </div>
+            </form>
         </div>
       </div>
     </div>
