@@ -41,8 +41,7 @@ class PaymentController extends Controller
             $paymentDb->status = $payment['data']['status'];
             $transaction = $paymentDb->save();
 
-            $update = User::where('id', $user_id)->update(['role'=>'paid_user']);
-            dd($update);
+            User::where('id', $user_id)->update(['role'=>'paid_user']);
             return Redirect::route('user')->with(['success'=>'Thank you for upgrading to our full package, be ready to enjoy unlimited services']);
         }else{
             return Redirect::back()->with(['error'=>'Transaction failed, Try again. Contact us if problem persist >', 'type'=>'error']);
