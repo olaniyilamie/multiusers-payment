@@ -27,10 +27,10 @@ class FreeUser
             return redirect()->route('admin');
         }        
 
-        // if (Auth::user()->role == 'paid_user') 
-        // {
-        //     return redirect()->route('user');
-        // }  
+        if (Auth::user()->role == 'paid_user') 
+        {
+            return redirect()->route('user');
+        }  
 
         return $next($request);
     }
