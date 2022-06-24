@@ -6,23 +6,18 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                @if (session('error'))
-                <div class="alert alert-danger">
-                    <p class="text-center">
-                            {{session('error')}}
-                    </p>
+        @if (session('error'))
+                <div class="alert alert-danger col-8 col-md-6 mx-auto mb-2">
+                    <p class="text-center font-weight-bold my-0">{{session('error')}}</p>
                 </div>
                 @endif
                 @if (session('success'))
-                <div class="alert alert-success">
-                    <p class="text-center">
-                            {{session('success')}}
-                    </p>
+                <div class="alert alert-success col-8 col-md-6 mx-auto mb-2">
+                    <p class="text-center font-weight-bold my-0">{{session('success')}}</i></p>
                 </div>
                 @endif
-
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">                
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
                 </div>
