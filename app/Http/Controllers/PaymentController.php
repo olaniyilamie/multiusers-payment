@@ -31,9 +31,11 @@ class PaymentController extends Controller
         if($payment['data']['status'] == 'success')
         {
             $paymentDb = new Payment();
+            $amount = $payment['data']['amount'];
+            
             $user_id = $payment['data']['metadata']['user_id'];
             $paymentDb->user_id = $user_id;
-            $paymentDb->amount = substr($payment['data']['amount'],-2);
+            $paymentDb->amount = substr($amount,0,-2);
             $paymentDb->trans_id = $payment['data']['reference'];
             $paymentDb->trans_date = $payment['data']['transaction_date'];
             $paymentDb->status = $payment['data']['status'];
@@ -41,7 +43,7 @@ class PaymentController extends Controller
 
             User::where('id', $user_id)->update(['role'=>'paid_user']);
 
-            return Redirect::route('paid.user')->with(['success'=>'Thank you for upgrading to our full package, be ready to enjoy unlimited services']);
+            return Redirect::route('user')->with(['success'=>'Thank you for upgrading to our full package, be ready to enjoy unlimited services']);
         }else{
             return Redirect::back()->with(['error'=>'Transaction failed, Try again. Contact us if problem persist >', 'type'=>'error']);
         }
