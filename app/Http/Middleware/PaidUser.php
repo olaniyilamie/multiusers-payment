@@ -32,6 +32,6 @@ class PaidUser
     //         return redirect()->route('user');
     //     }  
 
-        return $next($request);
+        return redirect()->route('user');
     }
 }
