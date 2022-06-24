@@ -30,8 +30,7 @@ class PaidUser
     // if (Auth::user()->role == 'free_user') 
     // {
     //         return redirect()->route('user');
-    //     }  
-        //dd(Auth::user()->role == 'free_user',Auth::user()->role == 'paid_user',$next,$request);
+    //     }          
         return $next($request);
     }
 }

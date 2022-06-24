@@ -31,7 +31,7 @@ class FreeUser
         // {
         //     return redirect()->route('user');
         // }  
-return $next($request);
+        return $next($request);
         
     }
 }
