@@ -22,9 +22,9 @@ class UserSeeder extends Seeder
             'email'  => 'freeuser@gmail.com',
             'password'  => Hash::make('user12345'),
             'role'  => 'free_user',
-            'created_at'  => date('y-m-d h:i:s'),
-            'updated_at'  => date('y-m-d h:i:s'),
-            'email_verified_at'  => date('y-m-d h:i:s'),
+            'created_at'  => date('yyyy-mm-dd'),
+            'updated_at'  => date('yyyy-mm-dd'),
+            'email_verified_at'  => date('yyyy-mm-dd'),
         ]);
     
         DB::table('users')->insert([
@@ -32,9 +32,9 @@ class UserSeeder extends Seeder
             'email'  => 'paiduser@gmail.com',
             'password'  => Hash::make('user12345'),
             'role'  => 'paid_user',
-            'created_at'  => date('y-m-d h:i:s'),
-            'updated_at'  => date('y-m-d h:i:s'),
-            'email_verified_at'  => date('y-m-d h:i:s'),
+            'created_at'  => date('yyyy-mm-dd'),
+            'updated_at'  => date('yyyy-mm-dd'),
+            'email_verified_at'  => date('yyyy-mm-dd'),
         ]);
     }
 }
