@@ -17,20 +17,21 @@ class FreeUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
+        if (!Auth::check()) 
+        {
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role == 'free_user') {
-            return $next($request);
-        }
-
-        if (Auth::user()->role == 'is_admin') {
+        if (Auth::user()->role == 'is_admin') 
+        {
             return redirect()->route('admin');
         }        
 
-        if (Auth::user()->role == 'paid_user') {
-            return redirect()->route('paid.user');
-        }  
+        // if (Auth::user()->role == 'paid_user') 
+        // {
+        //     return redirect()->route('user');
+        // }  
+
+        return $next($request);
     }
 }
