@@ -5,28 +5,16 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="/"  >   
-                        <i class="fa-brands fa-nfc-symbol fill-current text-gray-500"></i>
+                    <a href="{{ Auth::user()->role == 'is_admin' ? route('admin') : route('user') }}" >   
+                        <i class="fa-solid fa-user block w-auto fill-current text-gray-600 text-lg"></i>
                      </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">                     
-                    @if (Auth::user()->role == 'is_admin')
-                    <x-nav-link href="{{ route('admin') }}" >                    
-                        {{ __('Dashboard') }}
-                    </x-nav-link>    
-
-                    @elseif (Auth::user()->role == 'paid_user')
-                    <x-nav-link href="{{ route('paid.user') }}" >                
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">  
+                    <x-nav-link href="{{ Auth::user()->role == 'is_admin' ? route('admin') : route('user') }}" >                    
                         {{ __('Dashboard') }}
                     </x-nav-link>
-
-                    @else
-                    <x-nav-link href="{{ route('free.user') }}"  >                
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    @endif
                 </div>
             </div>
 
@@ -74,20 +62,10 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">             
-            @if (Auth::user()->role == 'is_admin')
-            <x-responsive-nav-link href="{{ route('admin') }}">
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ Auth::user()->role == 'is_admin' ? route('admin') : route('user') }}">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            @elseif (Auth::user()->role == 'paid_user')
-            <x-responsive-nav-link href="{{ route('paid.user') }}" >
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            @else
-            <x-responsive-nav-link href="{{ route('free.user') }}" >
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            @endif
         </div>
 
         <!-- Responsive Settings Options -->
