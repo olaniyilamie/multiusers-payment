@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\PaymentController;
 
 /*
@@ -19,15 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/dashboard', [HomeController::class, 'afterAuthRedirect'])->middleware(['auth'])->name('dashboard');
+Route::get('/home', [HomeController::class, 'redirectTo'])->name('home');
 
-Route::get('/admin/dashboard', [HomeController::class, 'adminIndex'])->middleware(['admin'])->name('admin');
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['free.user' , 'paid.user']], function () {
+        Route::get('/dashboard', [HomeController::class, 'userIndex'])->name('user');
+        Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+        Route::get('/payment/callback',[ PaymentController::class, 'handleGatewayCallback']);
+    });
 
-Route::get('free_user/dashboard', [HomeController::class, 'limitedUserIndex'])->middleware(['free.user'])->name('free.user');
+    Route::group(['middleware' => ['admin']], function () {
+        Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    });
+});
 
-Route::get('/dashboard', [HomeController::class, 'userIndex'])->middleware(['paid.user'])->name('paid.user');
-
-Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
-Route::get('/payment/callback',[ PaymentController::class, 'handleGatewayCallback']);
 
 require __DIR__.'/auth.php';
