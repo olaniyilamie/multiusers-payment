@@ -61,18 +61,27 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
+                <div class="flex justify-md-center mt-4 sm:items-center sm:justify-between">
+                    <div class="text-center text-sm text-gray-500">
                         <div class="flex items-center">
-                            <a href="" class="mr-2">
-                                Full Package Registration 
-                            </a> <i class="fa-solid fa-money-check-dollar"></i>
+                            @auth                        
+                                <a href="{{Auth::user()->role == 'is_admin' ? route('admin') : route('user')}}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>                        
+                            @else
+                            <a href="{{ route('login') }}" class="ml-2">
+                                Login 
+                            </a>
+                            @endif
                         </div>
                     </div>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 dark:text-gray-500">Free Limited Package Registration</a>
+                    @guest
+                    <div class="ml-4 text-md-center text-sm text-gray-500 sm:ml-0">
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 dark:text-gray-500 font-weight-bold">
+                            Registration
+                            <i class="fa-solid fa-money-check-dollar"></i>
+                        </a>
                     </div>
+                    @endguest
                 </div>
             </div>
         </div>
