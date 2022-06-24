@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'name'  => 'Free User',
-            'email'  => 'free_user@gmail.com',
-            'password'  => Hash::make('free_user'),
+            'email'  => 'freeuser@gmail.com',
+            'password'  => Hash::make('user12345'),
             'role'  => 'free_user',
             'created_at'  => date('y-m-d h:i:s'),
             'updated_at'  => date('y-m-d h:i:s'),
@@ -29,8 +29,8 @@ class UserSeeder extends Seeder
     
         DB::table('users')->insert([
             'name'  => 'Paid User',
-            'email'  => 'paid_user@gmail.com',
-            'password'  => Hash::make('paid_user'),
+            'email'  => 'paiduser@gmail.com',
+            'password'  => Hash::make('user12345'),
             'role'  => 'paid_user',
             'created_at'  => date('y-m-d h:i:s'),
             'updated_at'  => date('y-m-d h:i:s'),
