@@ -21,9 +21,9 @@ class AdminSeeder extends Seeder
             'email'  => 'admin@gmail.com',
             'password'  => Hash::make('admin12345'),
             'role'  => 'is_admin',
-            'created_at'  => date('yyyy-mm-dd'),
-            'updated_at'  => date('yyyy-mm-dd'),
-            'email_verified_at'  => date('yyyy-mm-dd'),
+            'created_at'  => date('y-m-d'),
+            'updated_at'  => date('y-m-d'),
+            'email_verified_at'  => date('y-m-d'),
         ]);
     }
 }
