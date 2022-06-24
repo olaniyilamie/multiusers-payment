@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ Auth::user()->role == 'is_admin' ? route('admin') : route('user') }}" >   
+                    <a href="/" >   
                         <i class="fa-solid fa-user block w-auto fill-current text-gray-600 text-lg"></i>
                      </a>
                 </div>
