@@ -11,14 +11,14 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-        <link rel="icon" type="image/logo.png" href="{{ URL::asset('images/passport.png')}}">        
-        <link rel="stylesheet" href="{{ URL::asset('style/icons/css/all.min.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('style/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="icon" type="image/logo.png" href="{{ asset('images/passport.png')}}">        
+        <link rel="stylesheet" href="{{ asset('style/icons/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/bootstrap.min.css') }}">
 
 
         <!-- Scripts -->
-        <script src="{{ URL::asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
