@@ -8,8 +8,8 @@
 
         <!-- Fonts -->               
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/logo.png" href="{{ asset('images/passport.png')}}">        
-        <link href="{{ asset('style/icons/css/all.min.css') }}" rel="stylesheet">
+        <link rel="icon" type="image/logo.png" href="{{ URL::asset('images/passport.png')}}">        
+        <link href="{{ URL::asset('style/icons/css/all.min.css') }}" rel="stylesheet">
 
         <!-- Styles -->
         <style>
